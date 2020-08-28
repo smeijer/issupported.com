@@ -1,0 +1,141 @@
+{
+  "projectName": "testing-playground",
+  "projectOwner": "testing-library",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "smeijer",
+      "name": "Stephan Meijer",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1196524?v=4",
+      "profile": "https://github.com/smeijer",
+      "contributions": [
+        "ideas",
+        "code",
+        "infra",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "marcosvega91",
+      "name": "Marco Moretti",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/5365582?v=4",
+      "profile": "https://github.com/marcosvega91",
+      "contributions": [
+        "code",
+        "test",
+        "doc"
+      ]
+    },
+    {
+      "login": "timdeschryver",
+      "name": "Tim Deschryver",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/28659384?v=4",
+      "profile": "http://timdeschryver.dev",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "kentcdodds",
+      "name": "Kent C. Dodds",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1500684?v=4",
+      "profile": "https://kentcdodds.com",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "MichaelDeBoey",
+      "name": "Michaël De Boey",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/6643991?v=4",
+      "profile": "https://michaeldeboey.be",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "delca85",
+      "name": "Bianca Del Carretto",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/4076043?v=4",
+      "profile": "https://github.com/delca85",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "ljosberinn",
+      "name": "Gerrit Alex",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/29307652?v=4",
+      "profile": "http://gerritalex.de",
+      "contributions": [
+        "code",
+        "test"
+      ]
+    },
+    {
+      "login": "Siemko",
+      "name": "Dominik Guzy",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/9118764?v=4",
+      "profile": "https://www.guzy.dev",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "connorProgrammes",
+      "name": "ConnorProgrammes",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/66570218?v=4",
+      "profile": "https://github.com/connorProgrammes",
+      "contributions": [
+        "doc",
+        "code"
+      ]
+    },
+    {
+      "login": "JacobMGEvans",
+      "name": "Jacob M-G Evans",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/27247160?v=4",
+      "profile": "https://twitter.com/JacobMGEvans",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "sumeesh879",
+      "name": "Sumeesh Nagisetty",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/20029120?v=4",
+      "profile": "https://github.com/sumeesh879",
+      "contributions": [
+        "review"
+      ]
+    },
+    {
+      "login": "flaviohenriquecbc",
+      "name": "Flávio H Freitas",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1553609?v=4",
+      "profile": "http://www.linkedin.com/in/flaviohfreitas",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "bmeverett",
+      "name": "Brandon Everett",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/3941006?v=4",
+      "profile": "https://github.com/bmeverett",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true
+}

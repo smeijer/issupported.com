@@ -1,0 +1,10 @@
+.rts2_cache*
+.cache
+.parcel-cache
+
+dist/
+node_modules/
+
+# Local Netlify folder
+.netlify
+.env
