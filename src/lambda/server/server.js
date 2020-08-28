@@ -144,19 +144,19 @@ async function handler(event, context, callback) {
 
   switch (host) {
     case 'report': {
-      title = 'report @ issupported.com';
+      title = 'report @ Is Supported';
       body = DetailPage;
       break;
     }
 
     case 'api': {
-      title = 'api @ issupported.com';
+      title = 'api @ Is Supported';
       body = ApiPage;
       break;
     }
 
     default: {
-      title = 'issupported.com';
+      title = 'Is Supported';
       body = SupportedPage;
       setCookie = !!host;
     }
