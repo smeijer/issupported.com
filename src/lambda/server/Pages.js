@@ -163,6 +163,19 @@ module.exports.ApiPage = () => `
         <p>Please note that <code>domain</code> should be without http or www. 
         Just something like "example.com". While <code>redirect</code> should
         be the full address. Like "https://example.com"</p>
+        
+        <h2 id="examples"><a href="#examples">Examples</a></h2>
+        <p>Let's hope that you're not really using IE 6, as these examples depend on the fact that you're not.</p>
+        
+        <p>Open the <a href="/example.com?browsers=IE%206&redirect=api%23examples">IE 6 only</a>
+        page to see what the page looks like, when it recommends updating. As the link has a <code>browsers=IE 6</code> 
+        query defined, it will only let IE 6 pass. All other browsers will result in the advise to update.</p>
+        
+        <p>To see what the "all fine" page looks like, open the <a href="/example.com?browsers=not%20IE%206&redirect=api%23examples">all but IE 6</a>
+        page. This link has a <code>browsers=not IE 6</code> query defined, it will only advise to update to those that
+        are still using IE 6. Because of that, you should see a positive result.</p>
+       
+        <p>Both examples have a <code>redirect</code> defined that goes back to this page, and use <code>example.com</code> as <code>domain</code>. Clicking the big action button, should bring you right back here.</p>
   </div>`;
 
 module.exports.DetailPage = ({ supported, engine, browser, os, platform }) => {
