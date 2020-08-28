@@ -18,6 +18,7 @@ async function main() {
   await Promise.all([
     copy('_redirects', join(dest, '_redirects')),
     copy('.well-known', join(dest, '.well-known')),
+    copy('public', dest),
     copy(
       'node_modules/browser-logos/src/chrome/chrome.svg',
       join(dest, 'chrome.svg'),

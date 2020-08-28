@@ -7,6 +7,48 @@ module.exports.HtmlPage = ({ title, content, className }) => `
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="/app.css" rel="stylesheet">
     
+    <link rel="icon" type="image/png" sizes="32x32" href="/issupported-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/issupported-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/issupported-16x16.png">
+
+    <meta name="keywords" content="browser, webbrowser, upgrade browser, browser bar, browser banner, update browser, choice, change browser, firefox, safari, opera, firefox, upgrade internet explorer, internet explorer update, ie, safari, konqueror, deprecation warning" />
+    <meta name="description" content="Check if your browser is still up to date, and supported by your favorite websites." />
+    
+    <!-- robots -->
+    <meta name="distribution" content="global" />
+    <meta name="robots" content="index,nofollow" />
+    <meta name="revisit-after" content="7 days" />
+
+    <meta name="language" content="en" />
+    <link rel="canonical" href="https://issupported.com" />
+
+    <!-- Schema.org -->
+    <meta itemprop="name" content="issupported.com" />
+    <meta itemprop="description" content="Check if your browser is still up to date, and supported by your favorite websites." />
+    <meta itemprop="image" content="/preview.png" />
+    <meta property="image:alt" content="browser support check and upgrade suggestions" />
+
+    <!-- Facebook OpenGraph -->
+    <meta property="og:url" content="https://issupported.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="is supported" />
+    <meta property="og:image" content="/preview.png" />
+    <meta property="og:image:alt" content="browser support check and upgrade suggestions" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta property="og:description" content="Browser support check and upgrade suggestions." />
+    <meta property="og:site_name" content="is supported" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter OpenGraph -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@meijer_s" />
+    <meta name="twitter:url" content="https://issupported.com" />
+    <meta name="twitter:title" content="is supported" />
+    <meta name="twitter:description" content="Browser support check and upgrade suggestions." />
+    <meta name="twitter:image" content="../public/site.jpg" />
+    <meta name="twitter:image:alt" content="is supported" />
+
     <title>${title}</title>
   </head>
   <body>
