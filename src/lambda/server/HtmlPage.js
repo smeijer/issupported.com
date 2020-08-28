@@ -1,5 +1,4 @@
-module.exports.HtmlPage = ({ title, content, className }) => `
-<!DOCTYPE html>
+module.exports.HtmlPage = ({ title, content, className }) => `<!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" lang="en" itemscope itemtype="http://schema.org/WebPage">
   <head>
     <meta charset="utf-8" />
