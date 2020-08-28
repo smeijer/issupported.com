@@ -27,7 +27,7 @@ module.exports.HtmlPage = ({ title, content, className }) => `
     <!-- Schema.org -->
     <meta itemprop="name" content="Is Supported" />
     <meta itemprop="description" content="Check if your browser is still supported by your favorite websites." />
-    <meta itemprop="image" content="/preview.png" />
+    <meta itemprop="image" content="https://issupported.com/preview.png" />
     <meta property="image:alt" content="browser support check and upgrade suggestions" />
 
     <!-- Facebook OpenGraph -->
@@ -35,7 +35,7 @@ module.exports.HtmlPage = ({ title, content, className }) => `
     <meta property="og:url" content="https://issupported.com" />
     <meta property="og:title" content="Is Supported" />
     <meta property="og:site_name" content="issupported.com" />
-    <meta property="og:image" content="/preview.png" />
+    <meta property="og:image" content="https://issupported.com/preview.png" />
     <meta property="og:image:alt" content="browser support check and upgrade suggestions" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="675" />
@@ -48,7 +48,7 @@ module.exports.HtmlPage = ({ title, content, className }) => `
     <meta name="twitter:url" content="https://issupported.com" />
     <meta name="twitter:title" content="Is Supported" />
     <meta name="twitter:description" content="Check if your browser is still supported by your favorite websites." />
-    <meta name="twitter:image" content="/preview.png" />
+    <meta name="twitter:image" content="https://issupported.com/preview.png" />
     <meta name="twitter:image:alt" content="Is Supported" />
 
     <title>${title}</title>
