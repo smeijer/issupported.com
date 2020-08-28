@@ -20,7 +20,7 @@ const html = (body, headers) => ({
   statusCode: 200,
   body: body,
   headers: {
-    'Cache-Control': 'public, s-maxage=15',
+    'Cache-Control': 'no-cache',
     'Content-Type': 'text/html; charset=UTF-8',
     ...headers,
   },
@@ -96,6 +96,10 @@ function createScript(event, context) {
 async function handler(event, context, callback) {
   const host = extractHostname(event.path.split('/')[1]);
 
+  if (host === 'favicon.ico') {
+    return callback(null, null);
+  }
+
   if (host === 'plugin') {
     const script = createScript(event, context);
     return callback(null, js(script));
@@ -122,6 +126,10 @@ async function handler(event, context, callback) {
     // fall back to default query if the provided one isn't valid
     browser = check(userAgent, `defaults`);
   }
+
+  console.log(
+    `req: host ${host} | supported ${browser.supported} | used: ${browser.list} | provided ${browsers}`,
+  );
 
   let title;
   let body;
