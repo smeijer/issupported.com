@@ -42,7 +42,7 @@ function getBrowsers(os) {
 function BrowserBox({ name, icon, url }) {
   return `
     <a class="box" href="${url}">
-      <img src="${icon}" />
+      <img alt="${name} logo" src="${icon}" />
       <div>${name}</div>
     </a>
   `;
@@ -176,6 +176,7 @@ module.exports.ApiPage = () => `
         are still using IE 6. Because of that, you should see a positive result.</p>
        
         <p>Both examples have a <code>redirect</code> defined that goes back to this page, and use <code>example.com</code> as <code>domain</code>. Clicking the big action button, should bring you right back here.</p>
+      </div>
   </div>`;
 
 module.exports.DetailPage = ({ supported, engine, browser, os, platform }) => {
@@ -200,7 +201,7 @@ screen:
 window:
 px ratio:
 </pre>
-      <script type="text/javascript">(function() {
+      <script>(function() {
         var e = document.querySelector('pre'); var s = screen; var w = window; var dp = (w.devicePixelRatio || 1);
         e.innerText = e.innerText.replace(/^screen:/m, 'screen:    ' + Math.floor(s.width * dp) + '×' + Math.floor(s.height * dp) + ' ('+s.pixelDepth+'bit)');
         e.innerText = e.innerText.replace(/^window:/m, 'window:    ' + w.innerWidth + '×' + w.innerHeight);
