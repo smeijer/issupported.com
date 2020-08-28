@@ -19,6 +19,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   background: radial-gradient(50% 50% at 50% 50%, #ffffff 0%, #f0f4f8 100%);
+  overflow-y: auto;
 }
 
 blockquote,
@@ -38,7 +39,7 @@ pre {
 }
 
 pre {
-  white-space: pre-wrap;
+  white-space: pre;
   color: #27241d;
   background: #faf9f7;
   border-radius: 0.25rem;
@@ -47,6 +48,35 @@ pre {
   padding: 1rem;
   width: 100%;
   user-select: all;
+}
+
+code {
+  font-family: monospace;
+  font-size: 0.875rem;
+  padding: 0 0.25rem;
+  position: relative;
+  z-index: 0;
+  white-space: nowrap;
+  color: #27241d;
+}
+
+code:before {
+  position: absolute;
+  top: -4px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 8px);
+  display: block;
+  content: '';
+  background: #faf9f7;
+  z-index: -1;
+  border-radius: 0.25rem;
+}
+
+.api pre {
+  margin: 1rem 0 1rem -8rem;
+  width: 36rem;
+  padding-left: 8rem;
 }
 
 button,
@@ -104,6 +134,24 @@ h1 {
   color: #27241d;
 }
 
+h2 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #27241d;
+  margin-top: 1.5rem;
+}
+
+h2 a {
+  color: inherit;
+  position: relative;
+}
+
+h2 a:hover:before {
+  content: '#';
+  display: block;
+  position: absolute;
+  left: -1rem;
+}
 p {
   font-size: 0.875rem;
   color: #828282;
@@ -111,8 +159,12 @@ p {
 }
 
 a {
+  color: #3e96ac;
   text-decoration: none;
-  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .suggestions {
@@ -125,6 +177,10 @@ a {
   user-select: none;
 }
 
+.suggestions a {
+  text-decoration: none;
+  color: inherit;
+}
 .box {
   padding: 1rem;
   border-radius: 0.25rem;
@@ -195,11 +251,56 @@ a {
   display: inline-block;
 }
 
+.menu {
+  position: absolute;
+  top: -2rem;
+  right: 0;
+  font-size: 0.875rem;
+}
+
+.menu span {
+  padding: 0 0.25rem;
+}
+
+.menu a,
+.menu span {
+  color: #27241d;
+  opacity: 0.2;
+  transition: opacity 0.25s ease;
+}
+
+.menu a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.left {
+  text-align: left;
+}
+
 @media (min-width: 640px) {
   .dialog {
     padding-top: 8rem;
     max-width: 36rem;
     height: auto;
+  }
+
+  #app.api {
+    align-items: start;
+  }
+
+  #app.api .dialog {
+    padding: 2rem;
+    margin: 4rem 0;
+  }
+
+  #app.api .dialog .content {
+    max-width: 32rem;
+  }
+
+  #app.api .dialog pre {
+    margin-left: -2rem;
+    padding-left: 2rem;
   }
 
   .dialog {

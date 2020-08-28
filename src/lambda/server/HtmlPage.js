@@ -5,15 +5,22 @@ module.exports.HtmlPage = ({ title, content, className }) => `
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href="/styles/app.css" rel="stylesheet">
+    <link href="/app.css" rel="stylesheet">
     
     <title>${title}</title>
   </head>
   <body>
     <div id="app" class="${className || ''}">
         <div class="dialog">
-            <div>
+            <div class="content">
                 ${content}
+            </div>
+            <div class="menu">
+                <a href="/">check</a>
+                <span>|</span> 
+                <a href="/report">report</a>
+                <span>|</span> 
+                <a href="/api">developers</a>
             </div>
         </div>
     </div>

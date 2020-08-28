@@ -22,5 +22,6 @@ module.exports.check = function (userAgent, browsers) {
     supported: supported.test(userAgent),
     userAgent,
     ...bowser.parse(userAgent),
+    list: browsers,
   };
 };

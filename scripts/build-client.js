@@ -7,7 +7,7 @@ async function main() {
   const dest = resolve('dist/client');
   await remove(dest);
 
-  const entries = ['src/index.html', 'src/styles/app.pcss'];
+  const entries = ['src/styles/app.pcss'];
 
   const parcel = await build({
     entries,

@@ -102,6 +102,69 @@ module.exports.SupportedPage = ({ host, supported, browser, os, redirect }) => {
 
 const join = (...values) => values.filter(Boolean).join(' ');
 
+const issupported = `<a href="https://issupported.com">issupported</a>`;
+module.exports.ApiPage = () => `
+  <div>
+    <h1>Developer API</h1>
+    <div class="left api">
+      <p>${issupported} uses the famous <a href="https://github.com/browserslist/browserslist">browserslist</a>
+         to determine if the users' browser is still supported. Having an automated
+          way to handle browser support is nice. But wouldn't it be awesome to let
+          the user know that they should upgrade as well?<br /><br />This is where ${issupported} comes in.
+      </p>
+      <h2 id="script-tag"><a href="#script-tag">Script tag</a></h2>
+      <p>
+        ${issupported} can be integrated in your own site, by adding a script tag.</p>
+      <pre>&lt;script 
+  type="text/javascript"
+  src="https://issupported.com/plugin?browsers=…"
+&gt;&lt;/script&gt;</pre>
+
+       <p>The script url accepts a <code>browserslist</code> query as <code>browsers</code> parameter.
+       When you don't provide it, it will default to <code>defaults</code>.</p>
+       
+       <pre>/plugin?browsers=defaults, not IE 11</pre>
+        
+        <h2 id="manual"><a href="#manual">Manual redirection</a></h2>
+        <p>It's also possible to manually send the user to ${issupported}. For 
+        example because you need some info for a github issue. In that case, it's 
+        recommended to send them to <code>/report</code>. They can then copy the 
+        results, and paste them in the issue.
+        
+        <pre>https://issupported.com/report</pre>
+        
+        <p>Please consider adding this link and instructions to your github issue template.</p>
+        
+        <h2 id="back-link"><a href="#back-link">Back Linking</a></h2>
+        <p>The last option that we currently provide, is a semi branded page. This
+        option can be used to add a link to your website, which sends the user
+        to ${issupported}. By providing a <code>domain</code> and <code>redirect</code> parameter,
+        the user will find their way back.</p>
+        
+        <pre>&lt;a 
+  href="https://issupported.com/{domain}?redirect={redirect}"
+&gt;browser check&lt;/a&gt;</pre>
+        
+        <p>Note that <code>domain</code> has a double purpose. It's the label that 
+        will be displayed on the "back button". But when you don't provide the 
+        <code>browsers</code> parameter (see below), we'll also try to fetch and use a
+        <code>browserslist</code> file from your site. By using this convention, it might be easier to
+        keep the list actual. You'll also get a nice working short link to check browser
+        compatibility for your site, like: issuported.com/example.com.</p>
+        
+        <pre>https://{domain}/.well-known/browserslist.txt</pre>
+        <p>We recommend copying the browserslist to the <code>.well-known</code> folder
+         as part of your build process.</p>
+
+        <p>The back link also supports the <code>browsers</code> argument just like with the <a href="#script-tag">script tag</a> above.
+        When the <code>browsers</code> parameter is left out, and the list can't be retrieved from the <code>.well-known</code> 
+        folder, it will default to <code>defaults</code>.</p>
+        
+        <p>Please note that <code>domain</code> should be without http or www. 
+        Just something like "example.com". While <code>redirect</code> should
+        be the full address. Like "https://example.com"</p>
+  </div>`;
+
 module.exports.DetailPage = ({ supported, engine, browser, os, platform }) => {
   const [version] = browser.version.split('.');
 

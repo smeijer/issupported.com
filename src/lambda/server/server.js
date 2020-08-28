@@ -4,6 +4,7 @@ const { HtmlPage } = require('./HtmlPage');
 const cookie = require('cookie');
 const { getRegex } = require('./support');
 const fetch = require('node-fetch');
+const { ApiPage } = require('./Pages');
 const { DetailPage } = require('./Pages');
 
 function getHostname(event, context) {
@@ -37,7 +38,7 @@ const js = (body, headers) => ({
 });
 
 function compact(val) {
-  return val.toString().replace(/[\s|\n]+/g, ' ');
+  return val.toString().replace(/[\s\n]+/g, ' ');
 }
 
 function extractHostname(path) {
@@ -69,7 +70,11 @@ function createScript(event, context) {
     const regex = getRegex(browsers || 'defaults');
     const b = browsers ? encodeURIComponent(browsers) : '';
 
-    return `(
+    console.log(
+      `create script | used: ${browsers || 'defaults'} | provided ${browsers}`,
+    );
+
+    const code = `(
       function (){
         if (
           document.cookie.indexOf('browser.issupported.com=pause') === -1 && 
@@ -79,6 +84,8 @@ function createScript(event, context) {
         }
       }
     )()`;
+
+    return code;
   } catch (e) {
     return e.message;
   }
@@ -113,7 +120,7 @@ async function handler(event, context, callback) {
     try {
       const res = await fetch(`https://${host}/.well-known/browserslist.txt`);
       const body = await res.text();
-      browsers = body.split('\n');
+      browsers = body.split('\n').filter(Boolean).join(', ');
     } catch (e) {
       // void
     }
@@ -137,13 +144,19 @@ async function handler(event, context, callback) {
 
   switch (host) {
     case 'report': {
-      title = 'Browser Report';
+      title = 'report @ issupported.com';
       body = DetailPage;
       break;
     }
 
+    case 'api': {
+      title = 'api @ issupported.com';
+      body = ApiPage;
+      break;
+    }
+
     default: {
-      title = 'Browser Support';
+      title = 'issupported.com';
       body = SupportedPage;
       setCookie = !!host;
     }
@@ -154,7 +167,7 @@ async function handler(event, context, callback) {
   const page = HtmlPage({
     title,
     content,
-    className: browser.supported ? '' : 'unsupported',
+    className: host === 'api' ? 'api' : browser.supported ? '' : 'unsupported',
   });
 
   const informed = cookie.serialize('browser.issupported.com', 'pause', {
