@@ -110,6 +110,10 @@ object {
   height: 100%;
 }
 
+#app.api {
+  align-items: start;
+}
+
 .dialog {
   background-color: #fff;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -122,6 +126,11 @@ object {
   justify-content: center;
   align-items: center;
   position: relative;
+}
+
+#app.api .dialog {
+  height: auto;
+  align-items: start;
 }
 
 .dialog > div {
@@ -254,8 +263,8 @@ a:hover {
 
 .menu {
   position: absolute;
-  top: -2rem;
-  right: 0;
+  top: 1rem;
+  right: 1rem;
   font-size: 0.875rem;
 }
 
@@ -286,8 +295,8 @@ a:hover {
     height: auto;
   }
 
-  #app.api {
-    align-items: start;
+  .menu {
+    top: -2rem;
   }
 
   #app.api .dialog {
