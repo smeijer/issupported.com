@@ -48,7 +48,7 @@ module.exports.HtmlPage = ({ title, content, className }) => `
     <meta name="twitter:url" content="https://issupported.com" />
     <meta name="twitter:title" content="Is Supported" />
     <meta name="twitter:description" content="Check if your browser is still supported by your favorite websites." />
-    <meta name="twitter:image" content="../public/site.jpg" />
+    <meta name="twitter:image" content="/preview.png" />
     <meta name="twitter:image:alt" content="Is Supported" />
 
     <title>${title}</title>
