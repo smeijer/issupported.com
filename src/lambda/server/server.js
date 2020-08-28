@@ -20,7 +20,7 @@ const html = (body, headers) => ({
   statusCode: 200,
   body: body,
   headers: {
-    'Cache-Control': 'public, s-maxage=15, stale-while-revalidate=300',
+    'Cache-Control': 'public, s-maxage=15',
     'Content-Type': 'text/html; charset=UTF-8',
     ...headers,
   },
