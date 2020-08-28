@@ -1,8 +1,10 @@
 module.exports.HtmlPage = ({ title, content, className }) => `
 <!DOCTYPE html>
-<html lang="en">
+<html prefix="og: http://ogp.me/ns#" lang="en" itemscope itemtype="http://schema.org/WebPage">
   <head>
     <meta charset="utf-8" />
+    <meta name="title" content="Is Supported" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="/app.css" rel="stylesheet">
@@ -23,7 +25,7 @@ module.exports.HtmlPage = ({ title, content, className }) => `
     <link rel="canonical" href="https://issupported.com" />
 
     <!-- Schema.org -->
-    <meta itemprop="name" content="issupported.com" />
+    <meta itemprop="name" content="Is Supported" />
     <meta itemprop="description" content="Check if your browser is still up to date, and supported by your favorite websites." />
     <meta itemprop="image" content="/preview.png" />
     <meta property="image:alt" content="browser support check and upgrade suggestions" />
@@ -31,23 +33,23 @@ module.exports.HtmlPage = ({ title, content, className }) => `
     <!-- Facebook OpenGraph -->
     <meta property="og:url" content="https://issupported.com" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="is supported" />
+    <meta property="og:title" content="Is Supported" />
     <meta property="og:image" content="/preview.png" />
     <meta property="og:image:alt" content="browser support check and upgrade suggestions" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="675" />
     <meta property="og:description" content="Browser support check and upgrade suggestions." />
-    <meta property="og:site_name" content="is supported" />
+    <meta property="og:site_name" content="Is Supported" />
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter OpenGraph -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content="@meijer_s" />
     <meta name="twitter:url" content="https://issupported.com" />
-    <meta name="twitter:title" content="is supported" />
+    <meta name="twitter:title" content="Is Supported" />
     <meta name="twitter:description" content="Browser support check and upgrade suggestions." />
     <meta name="twitter:image" content="../public/site.jpg" />
-    <meta name="twitter:image:alt" content="is supported" />
+    <meta name="twitter:image:alt" content="Is Supported" />
 
     <title>${title}</title>
   </head>
