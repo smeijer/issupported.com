@@ -63,16 +63,12 @@ module.exports.Debug = (data) => `
 const logo = '';
 // const logo = 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png';
 
-module.exports.SupportedPage = ({ host, supported, browser, os, redirect }) => {
+module.exports.SupportedPage = ({ host, supported, os, redirect }) => {
   let { heading, message, button } = supported
     ? messages.en.supported
     : messages.en.unsupported;
 
   if (!host) {
-    const [version] = browser.version.split('.');
-    const osVersion = os.versionName || os.version || '';
-
-    heading = `${browser.name} ${version} on ${os.name} ${osVersion}`;
     message = supported
       ? `Your browser is up to date, and should be supported by most websites`
       : `You might want to update to a newer version, or try some other browser.`;
