@@ -39,6 +39,7 @@ pre {
 }
 
 pre {
+  font-family: 'courier new', courier, monospace;
   white-space: pre;
   color: #27241d;
   background: #faf9f7;
@@ -51,7 +52,7 @@ pre {
 }
 
 code {
-  font-family: monospace;
+  font-family: 'courier new', courier, monospace;
   font-size: 0.875rem;
   padding: 0 0.25rem;
   position: relative;
@@ -74,9 +75,12 @@ code:before {
 }
 
 .api pre {
-  margin: 1rem 0 1rem -8rem;
-  width: 36rem;
-  padding-left: 8rem;
+  width: 100vw;
+  margin-left: calc((100vw - 20rem) / -2);
+  padding-left: calc((100vw - 20rem) / 2);
+  overflow-x: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 button,
@@ -298,6 +302,10 @@ a:hover {
 
   .menu {
     top: -2rem;
+  }
+
+  #app.api pre {
+    width: calc(100% + 4rem);
   }
 
   #app.api .dialog {
