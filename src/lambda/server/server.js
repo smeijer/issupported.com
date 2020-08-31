@@ -1,7 +1,6 @@
 const { check } = require('./support');
 const { SupportedPage } = require('./Pages');
 const { HtmlPage } = require('./HtmlPage');
-const cookie = require('cookie');
 const { getRegex } = require('./support');
 const fetch = require('node-fetch');
 const { ApiPage } = require('./Pages');
@@ -62,6 +61,8 @@ function extractHostname(path) {
   return hostname;
 }
 
+const backOffDuration = 7 * 24 * 60 * 60 * 1000;
+
 function createScript(event, context) {
   const h = getHostname(event, context);
   const { browsers } = event.queryStringParameters;
@@ -75,12 +76,16 @@ function createScript(event, context) {
     );
 
     const code = `(
-      function (){
-        if (
-          document.cookie.indexOf('browser.issupported.com=pause') === -1 && 
-          !${regex}.test(navigator.userAgent)
-        ) {
-          location.href='${h}/'+location.hostname.replace(/^www./, '')+'?browsers=${b}&redirect='+window.location.href;
+      function () {
+        var v = '_bis=p', p = document.cookie.indexOf(v) > -1, s = ${regex}.test(navigator.userAgent), l = location;
+
+        if (!p && !s) {
+          var h = l.hostname.split('.').reverse();
+          h = h[1] ? h[1]+'.'+h[0] : h[0];
+          
+          var e = new Date((new Date).getTime() + ${backOffDuration}).toGMTString();
+          document.cookie = v+'; path=/; expires='+e+'; domain='+h+';';
+          l.href='${h}/'+l.hostname.replace(/^www./, '')+'?browsers=${b}&redirect='+l.href;
         }
       }
     )()`;
@@ -140,7 +145,6 @@ async function handler(event, context, callback) {
 
   let title;
   let body;
-  let setCookie = false;
 
   switch (host) {
     case 'report': {
@@ -158,7 +162,6 @@ async function handler(event, context, callback) {
     default: {
       title = 'Is Supported';
       body = SupportedPage;
-      setCookie = !!host;
     }
   }
 
@@ -170,22 +173,7 @@ async function handler(event, context, callback) {
     className: host === 'api' ? 'api' : browser.supported ? '' : 'unsupported',
   });
 
-  const informed = cookie.serialize('browser.issupported.com', 'pause', {
-    httpOnly: false,
-    maxAge: 60 * 60 * 24 * 7, // 1 week
-  });
-
-  return callback(
-    null,
-    html(
-      page,
-      setCookie
-        ? {
-            'Set-Cookie': informed,
-          }
-        : {},
-    ),
-  );
+  return callback(null, html(page));
 }
 
 module.exports = { handler };
