@@ -6,6 +6,10 @@ const fetch = require('node-fetch');
 const { ApiPage } = require('./Pages');
 const { DetailPage } = require('./Pages');
 
+// We should be able to cache it, as the scripts depend on the GET param,
+// but the check is still being done at the client.
+const CACHE_MAX_AGE = 7 * 24 * 3600;
+
 function getHostname(event, context) {
   if (event.headers.host) {
     return `http://${event.headers.host}`;
@@ -20,7 +24,7 @@ const html = (body, headers) => ({
   statusCode: 200,
   body: body,
   headers: {
-    'Cache-Control': 'no-cache',
+    'Cache-Control': `public, max-age=${CACHE_MAX_AGE}`,
     'Content-Type': 'text/html; charset=UTF-8',
     ...headers,
   },
@@ -30,7 +34,7 @@ const js = (body, headers) => ({
   statusCode: 200,
   body: compact(body),
   headers: {
-    'Cache-Control': 'public, s-maxage=15, stale-while-revalidate=300',
+    'Cache-Control': `public, max-age=${CACHE_MAX_AGE}`,
     'Content-Type': 'text/javascript',
     ...headers,
   },
