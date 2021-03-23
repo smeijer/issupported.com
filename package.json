@@ -22,7 +22,7 @@
     "ci:lint": "eslint",
     "ci:test": "jest --ci",
     "ci:changelog": "node scripts/changelog.js",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test:watch": "jest --watch",
     "bump:patch": "npm version patch -m 'release: cut the %s release'",
     "bump:minor": "npm version minor -m 'release: cut the %s release'",
