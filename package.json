@@ -1,7 +1,7 @@
 {
   "name": "browser-support",
   "version": "1.0.1",
-  "description": "Browser Support.",
+  "description": "Check if your browser is still supported by your favorite websites.",
   "author": "Stephan Meijer <stephan.meijer@gmail.com>",
   "homepage": "https://supported.at",
   "license": "MIT",
