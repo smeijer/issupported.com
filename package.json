@@ -5,6 +5,7 @@
   "author": "Stephan Meijer <stephan.meijer@gmail.com>",
   "homepage": "https://supported.at",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "dev": "npx --node-arg=--inspect netlify dev",
     "start": "run-s start:client",
