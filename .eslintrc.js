@@ -1,31 +1,39 @@
 module.exports = {
-  parser: 'babel-eslint',
+  parser: '@typescript-eslint/parser',
+  plugins: ['eslint-plugin-simple-import-sort'],
   extends: [
-    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
   ],
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module',
   },
-  settings: {
-    react: {
-      version: 'detect',
-    },
-  },
-  env: {
-    browser: true,
-    node: true,
-    es6: true,
-    jest: true,
-  },
   rules: {
-    'arrow-body-style': ['error', 'as-needed'],
-    curly: 'error',
-
-    // I'll probably add some typescript types instead
-    'react/prop-types': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    'prefer-const': [
+      'error',
+      {
+        destructuring: 'all',
+      },
+    ],
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
+    curly: ['error', 'all'],
   },
+
+  overrides: [
+    {
+      files: [
+        '__tests__/**/*.{ts,js}',
+        '**/*.test.{ts,tsx}',
+        './scripts/*.{js,ts,tsx}',
+      ],
+      rules: {
+        '@typescript-eslint/ban-ts-comment': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
+        isolatedModules: 'off',
+      },
+    },
+  ],
 };

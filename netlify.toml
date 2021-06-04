@@ -1,10 +1,7 @@
 [build]
   command = "npm run build"
-  functions = "./dist/server"
-  publish = "./dist/client"
+  publish = "out_publish"
+  functions = "out_functions"
 
-[dev]
-  functions = "./src/lambda"
-
-#[template.environment]
-#  GITHUB_GIST_TOKEN = "set token that has gist access"
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
