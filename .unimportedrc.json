@@ -1,0 +1,7 @@
+{
+  "entry": [
+    "./src/pages/_app.js",
+    "./src/pages/_document.js",
+    "./src/pages/**/*.{ts,tsx}"
+  ]
+}

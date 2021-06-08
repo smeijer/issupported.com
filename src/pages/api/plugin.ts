@@ -12,16 +12,6 @@ function compact(val) {
   return val.toString().replace(/[\s\n]+/g, ' ');
 }
 
-function getHostname(event, context) {
-  if (event.headers.host) {
-    return `http://${event.headers.host}`;
-  }
-
-  const { netlify } = context.clientContext.custom || {};
-
-  return JSON.parse(Buffer.from(netlify, 'base64').toString('utf-8')).site_url;
-}
-
 function createScript(browsers: string) {
   const regex = getRegex(browsers);
   const b = browsers ? encodeURIComponent(browsers) : '';
