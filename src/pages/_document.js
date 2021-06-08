@@ -6,10 +6,6 @@ import GoogleAnalytics from '../components/google-analytics';
 
 class MyDocument extends Document {
   render() {
-    const isProduction =
-      typeof global.location !== 'undefined' &&
-      location.hostname !== 'localhost';
-
     return (
       <Html>
         <Head />
@@ -17,10 +13,8 @@ class MyDocument extends Document {
         <body className="min-h-screen bg-gray-100">
           <Main />
           <NextScript />
-          {isProduction ? (
-            <>
-              <GoogleAnalytics gtag={process.env.NEXT_PUBLIC_GA_TRACKING_ID} />
-            </>
+          {process.env.NEXT_PUBLIC_GA_TRACKING_ID ? (
+            <GoogleAnalytics gtag={process.env.NEXT_PUBLIC_GA_TRACKING_ID} />
           ) : null}
         </body>
       </Html>
