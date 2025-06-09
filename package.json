@@ -2,6 +2,7 @@
   "name": "issupported",
   "version": "2.0.0",
   "private": true,
+  "homepage": "https://issupported.com",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
