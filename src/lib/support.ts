@@ -1,11 +1,11 @@
 import bowser from 'bowser';
 import {
   defaultOptions,
-  getUserAgentRegExp,
+  getUserAgentRegex,
 } from 'browserslist-useragent-regexp';
 
 export function getRegex(browsers) {
-  return getUserAgentRegExp({
+  return getUserAgentRegex({
     ...defaultOptions,
     allowHigherVersions: true,
     browsers,
