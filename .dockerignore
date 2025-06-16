@@ -2,3 +2,4 @@ node_modules
 .git
 .env
 .env.production.local
+tsconfig.tsbuildinfo
