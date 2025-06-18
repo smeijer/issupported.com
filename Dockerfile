@@ -4,6 +4,7 @@ ENV NODE_ENV=production
 
 COPY . .
 RUN npm ci --production=false --legacy-peer-deps
+RUN npx -y update-browserslist-db@latest
 RUN npm run build
 
 ARG NEXT_PUBLIC_BASE_URL
